@@ -12,12 +12,12 @@ import streamlit as st
 # Configuring user input
 spot_price_reference_input = st.sidebar.selectbox(
     'Select spot price reference',
-    ['DAI', 'ETH', 'BTC']
+    ['DAI', 'WETH']
 )
 
 decoding_type_input = st.sidebar.selectbox(
     'Select decoding type',
-    ['CONTRACT_CALL', 'TRANSACTION']
+    ['CONTRACT_CALL']
 )
 
 parameters = {
@@ -49,7 +49,7 @@ df = run(initial_values, partial_state_update_blocks, sim_config)
 p_df = post_processing(df, include_spot_prices=False)
 
 # Print DataFrame columns
-st.write(p_df.columns)
+st.write(p_df)
 
 # Create a plot
 fig = go.Figure()
